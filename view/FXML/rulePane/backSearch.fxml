@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="500.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.rulePane.BackSearchController">
+   <bottom>
+      <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#back" text="Back" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <top>
+      <Label text="Current Rules" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="lvKeyWords" layoutX="31.0" layoutY="38.0" prefHeight="77.0" prefWidth="124.0" />
+            <Label layoutX="31.0" layoutY="21.0" text="Keywords" />
+            <ListView fx:id="lvCounterAccounts" layoutX="31.0" layoutY="137.0" prefHeight="77.0" prefWidth="124.0" />
+            <Label layoutX="31.0" layoutY="120.0" text="Counteraccounts" />
+            <Label layoutX="34.0" layoutY="225.0" text="Combined rules" />
+            <ListView fx:id="lvCombinedRules" layoutX="31.0" layoutY="248.0" prefHeight="77.0" prefWidth="247.0" />
+            <Button layoutX="175.0" layoutY="64.0" mnemonicParsing="false" text="Delete keyword" />
+            <Button layoutX="174.0" layoutY="163.0" mnemonicParsing="false" text="Delete  Counter acc." />
+            <Button layoutX="94.0" layoutY="334.0" mnemonicParsing="false" text="Delete  combined rule" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
