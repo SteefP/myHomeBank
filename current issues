@@ -1,19 +1,8 @@
 to not forget here a list of current issues:
 -what to do with one- offs and other anomalies
--how many layers, of categories and sub categories, and how to manage them / current thought, just follow nibud structure, income 2 levels, 
-expenses three levels. And no felxibilty (no composite pattern) herein. Expenses that have no more depth then 2 levels, get a extra level 
-with the same name to easily sum over sub2 categories and sub3 categories
 -how to make the gui look nice
--
-
 
 smal issues
--categories moeten meteen eerst input dat er iets komt
--seach knopin lichgroen weld
--intiuitief heb ik het gevoel om op een transactie te drukken en verwacht ik dat er dan iets gebeurd
-
--maak een dialogue box : de volgende transacties zijn toegekend
--algemeen teurgkoppeling in UI
 -wanner eerste ker laden basis regels, en bijv ook monthly recurring
 -2 bank accounts
 
