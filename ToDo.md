@@ -7,11 +7,9 @@
 - add comments to code
 - crashmanagement (to prevent data loss)
 ## Design
-- Button alignment
 - Portability (also testing)
 - output screen
 ## Input
-- Overview with selected transactions.
 - Multiple accounts
 - Test: rules over multiple accounts or rules are account specific or rules are either or.
 - Rules overrule selection of transactions
