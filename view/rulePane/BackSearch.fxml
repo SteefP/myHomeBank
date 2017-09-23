@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="500.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.rulePane.BackSearchController">
+   <bottom>
+      <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#back" text="Back" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <top>
+      <Label text="Current Rules" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="lvKeyWords" layoutX="31.0" layoutY="38.0" prefHeight="45.0" prefWidth="149.0" AnchorPane.leftAnchor="20.0" />
+            <Label layoutX="31.0" layoutY="17.0" text="Keywords" AnchorPane.leftAnchor="20.0" />
+            <ListView fx:id="lvCounterAccounts" layoutX="23.0" layoutY="148.0" prefHeight="28.0" prefWidth="152.0" AnchorPane.leftAnchor="20.0" />
+            <Label layoutX="20.0" layoutY="124.0" text="Counteraccounts" AnchorPane.leftAnchor="20.0" />
+            <Label layoutX="34.0" layoutY="225.0" text="Combined rules" AnchorPane.leftAnchor="20.0" />
+            <ListView fx:id="lvCombinedRules" layoutX="31.0" layoutY="248.0" prefHeight="77.0" prefWidth="236.0" AnchorPane.leftAnchor="20.0" />
+            <Button layoutX="34.0" layoutY="91.0" mnemonicParsing="false" onAction="#deleteKeyword" prefHeight="25.0" prefWidth="148.0" text="Delete keyword" AnchorPane.leftAnchor="20.0" />
+            <Button layoutX="20.0" layoutY="186.0" mnemonicParsing="false" onAction="#deleteCounterAccount" prefHeight="25.0" prefWidth="151.0" text="Delete  Counter acc." AnchorPane.leftAnchor="20.0" />
+            <Button layoutX="94.0" layoutY="334.0" mnemonicParsing="false" onAction="#deleteCombinedRule" prefHeight="25.0" prefWidth="150.0" text="Delete  combined rule" AnchorPane.leftAnchor="20.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
