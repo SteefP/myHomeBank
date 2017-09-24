@@ -233,13 +233,13 @@ public class BankController1 implements BankControllerInterface {
 			if(t.getCategory().getName().equals(categoryName)){
 				for(Category category : bankModel.getCategories()){
 					for(String s : category.getKeyWords()){
-						if(t.getDescription().contains(s)){
+						if(t.getDescription().toUpperCase().contains(s.toUpperCase())){
 							t.setCategory(category);
 						}
 					}
 					for(SubCategory sb : category.getSubCategories()){
 						for(String s : sb.getKeyWords()){
-							if(t.getDescription().contains(s)){
+							if(t.getDescription().toUpperCase().contains(s.toUpperCase())){
 								t.setCategory(sb);
 								System.out.println("Transaction :" + " added to catgory " +sb);
 							}
