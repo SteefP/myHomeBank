@@ -757,8 +757,12 @@ public class MainController implements Initializable {
 	
 
 	public void initDateValues(){
-		dpChartStart.setValue(LocalDate.of(2016, 6, 1));
-		dpChartEnd.setValue(LocalDate.of(2017, 6, 1));
+		LocalDate startDate = controller.getTransactions().get(0).getTransactionDate();
+		int size = controller.getTransactions().size();
+		LocalDate endDate = controller.getTransactions().get(size-1).getTransactionDate();
+		System.out.println(startDate);
+		dpChartStart.setValue(startDate);
+		dpChartEnd.setValue(endDate);
 	}
 	
 	@FXML StackedBarChart sBChart;
