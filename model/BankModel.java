@@ -79,6 +79,31 @@ public class BankModel implements BankModelInterface , Serializable{
 		}
 		
 		initialCategoryAssignment();
+	}
+	
+	void convertRawInputToTransactionTriodos(){
+		for(String s: rawInput){
+			String[] result = s.split(",");
+			String account = result[0];
+			int year = Integer.parseInt(result[2].substring(1, 5));
+			int month = Integer.parseInt(result[2].substring(5, 7));
+			int day = Integer.parseInt(result[2].substring(7, 9));
+			LocalDate date = LocalDate.of(year,month,day);
+			String debetOrCredit = result[3].replaceAll("\"","");  //verwijderd de quotes
+			float amount = Float.parseFloat(result[4].replaceAll("\"",""));
+			String otherEndOfTransactionAccount = result[5].replaceAll("\"","");
+			String otherEndOfTransactionDiscription = result[6].replaceAll("\"","");
+			String description = result[10].replaceAll("\"","");
+			description = description.concat(result[11].replaceAll("\"",""));
+			description= description.concat(result[12].replaceAll("\"",""));
+			description = description.concat(result[13].replaceAll("\"",""));
+
+			Transaction transaction = new Transaction(account, date, amount, debetOrCredit, description, otherEndOfTransactionAccount, otherEndOfTransactionDiscription);
+			transactions.add(transaction);
+
+		}
+		
+		initialCategoryAssignment();
 	} 
 
 	void initialCategoryAssignment(){
