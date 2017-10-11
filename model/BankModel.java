@@ -59,7 +59,7 @@ public class BankModel implements BankModelInterface , Serializable{
 	void convertRawInputToTransaction(){
 		for(String s: rawInput){
 			String[] result = s.split(",");
-			String account = result[0];
+			String account = result[0].replaceAll("\"","");
 			int year = Integer.parseInt(result[2].substring(1, 5));
 			int month = Integer.parseInt(result[2].substring(5, 7));
 			int day = Integer.parseInt(result[2].substring(7, 9));
@@ -67,7 +67,7 @@ public class BankModel implements BankModelInterface , Serializable{
 			String debetOrCredit = result[3].replaceAll("\"","");
 			float amount = Float.parseFloat(result[4].replaceAll("\"",""));
 			String otherEndOfTransactionAccount = result[5].replaceAll("\"","");
-			String otherEndOfTransactionDiscription = result[6].replaceAll("\"","");
+			String otherEndOfTransactionDiscription = result[6].replaceAll("\"",""); //verwijderd de quotes
 			String description = result[10].replaceAll("\"","");
 			description = description.concat(result[11].replaceAll("\"",""));
 			description= description.concat(result[12].replaceAll("\"",""));
@@ -84,25 +84,25 @@ public class BankModel implements BankModelInterface , Serializable{
 	void convertRawInputToTransactionTriodos(){
 		for(String s: rawInput){
 			String[] result = s.split(",");
-			String account = result[0];
-			int year = Integer.parseInt(result[2].substring(1, 5));
-			int month = Integer.parseInt(result[2].substring(5, 7));
-			int day = Integer.parseInt(result[2].substring(7, 9));
+			int year = Integer.parseInt(result[0].substring(6, 10));  //eerste getal inclusief tweede ex, tot
+			int month = Integer.parseInt(result[0].substring(3, 5));
+			int day = Integer.parseInt(result[0].substring(0, 2));
 			LocalDate date = LocalDate.of(year,month,day);
-			String debetOrCredit = result[3].replaceAll("\"","");  //verwijderd de quotes
-			float amount = Float.parseFloat(result[4].replaceAll("\"",""));
-			String otherEndOfTransactionAccount = result[5].replaceAll("\"","");
-			String otherEndOfTransactionDiscription = result[6].replaceAll("\"","");
-			String description = result[10].replaceAll("\"","");
-			description = description.concat(result[11].replaceAll("\"",""));
-			description= description.concat(result[12].replaceAll("\"",""));
-			description = description.concat(result[13].replaceAll("\"",""));
-
+			String account = result[1];
+			float euro = Float.parseFloat(result[2]);
+			float cents = Float.parseFloat(result[3]);
+			float amount = euro+cents/100;
+			String debetOrCredit = result[4].substring(0, 1);  
+			String otherEndOfTransactionAccount = result[5];
+			String otherEndOfTransactionDiscription = result[6];
+			String description = result[8];
+			description = description.concat(result[9]);
+			
 			Transaction transaction = new Transaction(account, date, amount, debetOrCredit, description, otherEndOfTransactionAccount, otherEndOfTransactionDiscription);
 			transactions.add(transaction);
 
 		}
-		
+
 		initialCategoryAssignment();
 	} 
 
