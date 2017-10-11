@@ -53,7 +53,7 @@ public class BankModel implements BankModelInterface , Serializable{
 			System.out.println("Could'nt read the file");
 			ex.printStackTrace();
 		}
-		convertRawInputToTransaction();
+		convertRawInputToTransactionTriodos();
 	}
 
 	void convertRawInputToTransaction(){
@@ -113,6 +113,7 @@ public class BankModel implements BankModelInterface , Serializable{
 		categories.add(categoryC);
 		categories.add(categoryD);
 		for(Transaction t: transactions){
+			System.out.println(t);
 			if(t.getDebetOrCredit().equals("C")){
 				t.setCategory(categoryC);
 				System.out.println(t.getCategory());

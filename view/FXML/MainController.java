@@ -16,6 +16,7 @@ import javax.swing.JFileChooser;
 
 import controller.*;
 import model.*;
+import view.outputPane.OutputController;
 import view.rulePane.BackSearchController;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -56,6 +57,9 @@ public class MainController implements Initializable {
 	//Replaceable pane
 	@FXML AnchorPane rulePane;
 	@FXML SplitPane ruleCat;
+	@FXML BorderPane outputPane;
+	@FXML Tab outputTab;
+	
 
 	
 	// State flags
@@ -459,7 +463,19 @@ public class MainController implements Initializable {
 		backSearchController.addMainController(this);
 		
 	}
-
+	
+	/*
+	public void loadOutputPane() throws IOException {
+		System.out.println("Loading output pane");
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("/view/outputPane/Output.fxml"));
+		outputPane.
+		outputPane = loader.load();
+		OutputController outputController = loader.<OutputController>getController();
+		outputController.addBankController(controller);
+		
+	}
+*/
 	
 	
 	public void showRule(){

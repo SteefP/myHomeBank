@@ -119,14 +119,18 @@ public class Transaction implements Cloneable, Serializable, Comparable<Transact
 
 	
 	
-	@Override
-	public String toString(){
-		return transactionDate + " " + debetOrCredit + " " + amount+ " "+description + " category: " + category + " "+ otherEndOfTransactionAccount + " "+ otherEndOfTransactionDiscription;
-	}
-
+	
 	@Override
 	public int compareTo(Transaction o) {
 		return (int) (amount - o.amount);
+	}
+	@Override
+	public String toString() {
+		return "Transaction [account=" + account + ", transactionDate=" + transactionDate + ", amount=" + amount
+				+ ", debetOrCredit=" + debetOrCredit + ", description=" + description
+				+ ", otherEndOfTransactionAccount=" + otherEndOfTransactionAccount
+				+ ", otherEndOfTransactionDiscription=" + otherEndOfTransactionDiscription + ", category=" + category
+				+ ", adjustedAmount=" + adjustedAmount + ", adjustedDate=" + adjustedDate + "]";
 	}
 
 	
